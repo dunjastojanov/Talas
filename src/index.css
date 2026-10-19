@@ -1,0 +1,37 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Cabin", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Agbalumo", ui-serif, serif;
+
+  --color-red-700: #bf0007;
+  --color-blue-800: #005fa0;
+  --color-blue-500: #00a9cf;
+  --color-green-800: #23562b;
+  --color-green-500: #5baf7b;
+  --color-yellow-600: #cd800a;
+}
+
+body {
+  margin: 0;
+  background: #fff;
+  color: #000;
+  font-family: var(--font-sans);
+}
+
+/** Horizontal inset for public (unauthenticated) site pages and header */
+.public-page-x {
+  padding-inline: 1rem;
+}
+
+@media (min-width: 640px) {
+  .public-page-x {
+    padding-inline: 8%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .public-page-x {
+    padding-inline: 20%;
+  }
+}
