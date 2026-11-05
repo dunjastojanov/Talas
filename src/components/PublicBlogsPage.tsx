@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next'
 import { loadPublishedBlogs } from '../lib/loadPublicBlogs'
 import type { PublicBlogListRow } from '../lib/loadPublicBlogs'
 import { PublicBlogCard } from './PublicBlogCard'
+import { PageBanner } from './PageBanner'
 import { Skeleton } from './Skeleton'
 
 function PublicBlogCardSkeleton() {
@@ -52,11 +53,10 @@ export function PublicBlogsPage() {
   }, [])
 
   return (
-    <main className="public-page-x w-full py-8 sm:py-10">
-      <h1 className="font-display text-2xl text-blue-800 sm:text-3xl lg:text-4xl">{t('blog')}</h1>
-      <p className="mt-4 text-base text-black">{t('blogSubtitle')}</p>
-
-      <div className="mt-8">
+    <>
+      <PageBanner title={t('blog')} subtitle={t('blogSubtitle')} src="/home/banner_blog.png" />
+      <main className="public-page-x w-full py-8 sm:py-10">
+      <div>
         {loading ? (
           <ul className="flex list-none flex-col gap-12 p-0" aria-busy="true" aria-label={t('loading')}>
             {Array.from({ length: 3 }, (_, i) => (
@@ -80,5 +80,6 @@ export function PublicBlogsPage() {
         )}
       </div>
     </main>
+    </>
   )
 }

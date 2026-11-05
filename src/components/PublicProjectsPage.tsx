@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next'
 import { loadPublishedProjects } from '../lib/loadPublicProjects'
 import type { PublicProjectListRow } from '../lib/loadPublicProjects'
 import { PublicProjectCard } from './PublicProjectCard'
+import { PageBanner } from './PageBanner'
 import { Skeleton } from './Skeleton'
 
 function PublicProjectCardSkeleton() {
@@ -50,10 +51,10 @@ export function PublicProjectsPage() {
   }, [])
 
   return (
-    <main className="public-page-x w-full py-8 sm:py-10">
-      <h1 className="font-display text-2xl text-blue-800 sm:text-3xl lg:text-4xl">{t('projects')}</h1>
-
-      <div className="mt-8">
+    <>
+      <PageBanner title={t('projects')} />
+      <main className="public-page-x w-full py-8 sm:py-10">
+      <div>
         {loading ? (
           <ul className="flex list-none flex-col gap-12 p-0" aria-busy="true" aria-label={t('loading')}>
             {Array.from({ length: 3 }, (_, i) => (
@@ -77,5 +78,6 @@ export function PublicProjectsPage() {
         )}
       </div>
     </main>
+    </>
   )
 }

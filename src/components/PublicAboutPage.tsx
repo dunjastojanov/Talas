@@ -3,6 +3,7 @@ import { Link, useParams } from 'react-router'
 import { isLanguage, type Language } from '../i18n'
 import { ABOUT_FEATURED_PROJECT_SLUG } from '../siteLinks'
 import { routeHref } from '../routes'
+import { PageBanner } from './PageBanner'
 
 const bodyClass = 'text-base leading-relaxed text-black sm:text-lg'
 
@@ -13,10 +14,10 @@ export function PublicAboutPage() {
   const projectHref = routeHref(language, `projects/${ABOUT_FEATURED_PROJECT_SLUG}`)
 
   return (
-    <main className="public-page-x py-8 sm:py-10">
-      <h1 className="font-display text-2xl text-blue-800 sm:text-3xl lg:text-4xl">{t('about')}</h1>
-
-      <div className="mt-8 w-full space-y-6">
+    <>
+      <PageBanner title={t('about')} />
+      <main className="public-page-x py-8 sm:py-10">
+      <div className="w-full space-y-6">
         <p className={bodyClass}>
           <Trans
             i18nKey="aboutIntro"
@@ -60,5 +61,6 @@ export function PublicAboutPage() {
         />
       </div>
     </main>
+    </>
   )
 }

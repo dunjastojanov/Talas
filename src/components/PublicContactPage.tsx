@@ -1,6 +1,7 @@
 import type { FormEvent } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Button } from './Button'
+import { PageBanner } from './PageBanner'
 
 const fieldClass =
   'mt-1 w-full rounded-md border border-blue-800/30 bg-white px-3 py-2 text-green-800'
@@ -13,10 +14,10 @@ export function PublicContactPage() {
   }
 
   return (
-    <main className="public-page-x py-8 sm:py-10">
-      <h1 className="font-display text-2xl text-blue-800 sm:text-3xl lg:text-4xl">{t('contact')}</h1>
-
-      <form className="mt-8 flex max-w-xl flex-col gap-4" onSubmit={onSubmit}>
+    <>
+      <PageBanner title={t('contact')} />
+      <main className="public-page-x flex justify-center py-8 sm:py-10">
+      <form className="flex w-full max-w-xl flex-col gap-4" onSubmit={onSubmit}>
         <label className="block text-sm text-green-800">
           {t('contactFullName')}
           <input
@@ -46,5 +47,6 @@ export function PublicContactPage() {
         </div>
       </form>
     </main>
+    </>
   )
 }

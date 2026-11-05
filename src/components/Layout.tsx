@@ -86,7 +86,7 @@ export function Layout() {
 
   return (
     <div className="flex min-h-svh flex-col">
-      <header className="relative z-50 bg-white">
+      <header className="relative z-50 bg-white shadow-[0_2px_6px_rgba(0,0,0,0.08)]">
         <div
           ref={containerRef}
           className="public-page-x relative flex items-center justify-between gap-4 py-4 text-base leading-none"

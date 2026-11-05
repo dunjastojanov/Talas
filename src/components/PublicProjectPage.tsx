@@ -8,6 +8,7 @@ import type { PublicProjectDetail } from '../lib/loadPublicProjects'
 import type { ContentBlockRow } from '../lib/projects'
 import { projectTitle } from '../lib/projects'
 import { normalizeTipTapDoc } from '../lib/tiptapDoc'
+import { PageBanner } from './PageBanner'
 import { RichTextContent } from './RichTextContent'
 import { Skeleton } from './Skeleton'
 
@@ -63,10 +64,10 @@ export function PublicProjectPage() {
   if (loading) {
     return (
       <>
+        <PageBanner title={t('projects')} />
         <Skeleton className="h-[40svh] max-h-[40svh] w-full rounded-none" />
         <main className="public-page-x py-8 sm:py-10">
-          <Skeleton className="h-10 w-2/3 max-w-md" />
-          <div className="mt-8 space-y-6">
+          <div className="space-y-6">
             <Skeleton className="h-4 w-full" />
             <Skeleton className="h-4 w-full" />
             <Skeleton className="h-4 w-3/4" />
@@ -78,17 +79,23 @@ export function PublicProjectPage() {
 
   if (error) {
     return (
-      <main className="public-page-x py-8 sm:py-10">
-        <p className="text-red-700">{t('projectLoadError')}</p>
-      </main>
+      <>
+        <PageBanner title={t('projects')} />
+        <main className="public-page-x py-8 sm:py-10">
+          <p className="text-red-700">{t('projectLoadError')}</p>
+        </main>
+      </>
     )
   }
 
   if (notFound || !project) {
     return (
-      <main className="public-page-x py-8 sm:py-10">
-        <p className="text-black">{t('projectNotFound')}</p>
-      </main>
+      <>
+        <PageBanner title={t('projects')} />
+        <main className="public-page-x py-8 sm:py-10">
+          <p className="text-black">{t('projectNotFound')}</p>
+        </main>
+      </>
     )
   }
 
@@ -96,6 +103,7 @@ export function PublicProjectPage() {
 
   return (
     <>
+      <PageBanner title={title} />
       {project.cover_image_path ? (
         <div className="w-full max-h-[40svh] overflow-hidden">
           <img
@@ -106,8 +114,7 @@ export function PublicProjectPage() {
         </div>
       ) : null}
       <main className="public-page-x py-8 sm:py-10">
-        <h1 className="font-display text-2xl text-blue-800 sm:text-3xl lg:text-4xl">{title}</h1>
-        <div className="mt-8 flex w-full flex-col gap-8">
+        <div className="flex w-full flex-col gap-8">
           {project.blocks.map((block) => {
             if (block.block_type === 'text') {
               return (

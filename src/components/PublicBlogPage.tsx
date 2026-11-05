@@ -9,6 +9,7 @@ import type { PublicBlogDetail } from '../lib/loadPublicBlogs'
 import type { PublicContentBlock } from '../lib/projects'
 import { authorDisplayName, projectTitle } from '../lib/projects'
 import { normalizeTipTapDoc } from '../lib/tiptapDoc'
+import { PageBanner } from './PageBanner'
 import { RichTextContent } from './RichTextContent'
 import { Skeleton } from './Skeleton'
 
@@ -64,10 +65,10 @@ export function PublicBlogPage() {
   if (loading) {
     return (
       <>
+        <PageBanner title={t('blog')} />
         <Skeleton className="h-[40svh] max-h-[40svh] w-full rounded-none" />
         <main className="public-page-x py-8 sm:py-10">
-          <Skeleton className="h-10 w-2/3 max-w-md" />
-          <Skeleton className="mt-2 h-5 w-40" />
+          <Skeleton className="h-5 w-40" />
           <div className="mt-8 space-y-6">
             <Skeleton className="h-4 w-full" />
             <Skeleton className="h-4 w-full" />
@@ -80,17 +81,23 @@ export function PublicBlogPage() {
 
   if (error) {
     return (
-      <main className="public-page-x py-8 sm:py-10">
-        <p className="text-red-700">{t('postLoadError')}</p>
-      </main>
+      <>
+        <PageBanner title={t('blog')} />
+        <main className="public-page-x py-8 sm:py-10">
+          <p className="text-red-700">{t('postLoadError')}</p>
+        </main>
+      </>
     )
   }
 
   if (notFound || !blog) {
     return (
-      <main className="public-page-x py-8 sm:py-10">
-        <p className="text-black">{t('postNotFound')}</p>
-      </main>
+      <>
+        <PageBanner title={t('blog')} />
+        <main className="public-page-x py-8 sm:py-10">
+          <p className="text-black">{t('postNotFound')}</p>
+        </main>
+      </>
     )
   }
 
@@ -100,6 +107,7 @@ export function PublicBlogPage() {
 
   return (
     <>
+      <PageBanner title={title} />
       {blog.cover_image_path ? (
         <div className="w-full max-h-[40svh] overflow-hidden">
           <img
@@ -110,7 +118,6 @@ export function PublicBlogPage() {
         </div>
       ) : null}
       <main className="public-page-x py-8 sm:py-10">
-        <h1 className="font-display text-2xl text-blue-800 sm:text-3xl lg:text-4xl">{title}</h1>
         {date || author ? (
           <p className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-base text-black">
             {date ? (

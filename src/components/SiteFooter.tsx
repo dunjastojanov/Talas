@@ -168,7 +168,7 @@ export function SiteFooter({ solid = false }: { solid?: boolean }) {
   return (
     <footer
       className={`relative z-20 mt-auto text-white ${
-        solid ? 'bg-green-800' : 'bg-gradient-to-r from-green-800 to-green-500'
+        solid ? 'bg-green-800' : 'bg-gradient-to-r from-blue-800 to-blue-500'
       }`}
     >
       <div

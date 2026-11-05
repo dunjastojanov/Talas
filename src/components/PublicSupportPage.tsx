@@ -117,13 +117,23 @@ export function PublicSupportPage() {
   }
 
   return (
-    <main className="public-page-x py-8 sm:py-10">
+    <>
+      <div className="relative">
+        <img
+          src="/home/support_banner.png"
+          alt=""
+          aria-hidden
+          draggable={false}
+          className="pointer-events-none block w-full select-none"
+        />
+        <h1 className="absolute inset-x-[26%] top-[42%] -translate-y-1/2 text-center font-display text-[clamp(0.8rem,3.6vw,3.25rem)] leading-tight text-blue-800">
+          {t('supportPageTitle')}
+        </h1>
+      </div>
+      <main className="public-page-x py-8 sm:py-10">
       <Toast message={toastMessage} />
-      <h1 className="font-display text-2xl text-blue-800 sm:text-3xl lg:text-4xl">
-        {t('supportPageTitle')}
-      </h1>
 
-      <div className="mt-8 w-full space-y-6">
+      <div className="w-full space-y-6">
         <p className={`${bodyClass} text-xl font-bold sm:text-2xl`}>{t('supportHeadline')}</p>
 
         <p className={bodyClass}>{t('supportIntro')}</p>
@@ -183,5 +193,6 @@ export function PublicSupportPage() {
         decoding="async"
       />
     </main>
+    </>
   )
 }

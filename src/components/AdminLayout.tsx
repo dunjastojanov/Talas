@@ -124,7 +124,7 @@ export function AdminLayout() {
       </aside>
 
       <div className="flex min-w-0 flex-1 flex-col">
-        <header className="bg-white">
+        <header className="bg-white shadow-[0_2px_6px_rgba(0,0,0,0.08)]">
           <div
             className={`flex items-center gap-4 px-4 py-4 ${showMenuButton ? 'justify-between' : 'justify-end'}`}
           >

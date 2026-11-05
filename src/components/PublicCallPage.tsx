@@ -2,6 +2,7 @@ import { Trans, useTranslation } from 'react-i18next'
 import { Link, useParams } from 'react-router'
 import { isLanguage, type Language } from '../i18n'
 import { routeHref } from '../routes'
+import { PageBanner } from './PageBanner'
 
 const bodyClass = 'text-base leading-relaxed text-black sm:text-lg'
 const sectionTitleClass = 'pt-2 font-display text-xl text-blue-800 sm:text-2xl'
@@ -16,12 +17,10 @@ export function PublicCallPage() {
   const contactHref = routeHref(language, 'contact')
 
   return (
-    <main className="public-page-x py-8 sm:py-10">
-      <h1 className="font-display text-2xl text-blue-800 sm:text-3xl lg:text-4xl">
-        {t('callPageTitle')}
-      </h1>
-
-      <div className="mt-8 w-full space-y-6">
+    <>
+      <PageBanner title={t('callPageTitle')} />
+      <main className="public-page-x py-8 sm:py-10">
+      <div className="w-full space-y-6">
         <p className={bodyClass}>{t('callLead')}</p>
         <p className={bodyClass}>{t('callOffer')}</p>
         <p className={bodyClass}>{t('callVan')}</p>
@@ -53,12 +52,13 @@ export function PublicCallPage() {
       </div>
 
       <img
-        src="/kombi.jpeg"
+        src="/home/car_drawing.png"
         alt={t('callImageAlt')}
         className="mt-10 w-full rounded-lg object-cover sm:mt-12"
         loading="lazy"
         decoding="async"
       />
     </main>
+    </>
   )
 }
