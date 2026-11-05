@@ -54,7 +54,7 @@ export function PublicCallPage() {
       <img
         src="/home/car_drawing.png"
         alt={t('callImageAlt')}
-        className="mt-10 w-full rounded-lg object-cover sm:mt-12"
+        className="mt-10 w-full max-w-[400px] mx-auto rounded-lg object-cover sm:mt-12"
         loading="lazy"
         decoding="async"
       />
