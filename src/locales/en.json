@@ -1,5 +1,13 @@
 {
   "home": "Home",
+  "homeTitle": "KC Talas",
+  "homeTaglineLine1": "Is there no cultural content in your town?",
+  "homeTaglineLine2": "Call us and we'll come!",
+  "learnMore": "Learn more",
+  "homeBlogMore": "Learn more",
+  "homeVanAlt": "The colorful van of Kulturni Centar Talas",
+  "homeProjectsPrev": "Previous project",
+  "homeProjectsNext": "Next project",
   "projects": "Projects",
   "project": "Project {{id}}",
   "blog": "Blog",

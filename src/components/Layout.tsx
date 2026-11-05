@@ -16,6 +16,7 @@ export function Layout() {
   const location = useLocation()
   const navigate = useNavigate()
   const language: Language = isLanguage(lang) ? lang : 'en'
+  const isHome = location.pathname === `/${language}` || location.pathname === `/${language}/`
   const nextLanguage: Language = language === 'en' ? 'sr' : 'en'
   const [menuOpen, setMenuOpen] = useState(false)
 
@@ -159,7 +160,7 @@ export function Layout() {
       <div className="flex flex-1 flex-col">
         <Outlet />
       </div>
-      <SiteFooter />
+      <SiteFooter solid={isHome} />
     </div>
   )
 }

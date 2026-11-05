@@ -1,5 +1,13 @@
 {
   "home": "Početna",
+  "homeTitle": "KC Talas",
+  "homeTaglineLine1": "U vašem mestu nema kulturnog sadržaja?",
+  "homeTaglineLine2": "Zovite i dolazimo!",
+  "learnMore": "Saznaj više",
+  "homeBlogMore": "Saznajte više",
+  "homeVanAlt": "Šareni kombi Kulturnog centra Talas",
+  "homeProjectsPrev": "Prethodni projekat",
+  "homeProjectsNext": "Sledeći projekat",
   "projects": "Projekti",
   "project": "Projekat {{id}}",
   "blog": "Blog",

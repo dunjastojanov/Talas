@@ -155,7 +155,7 @@ function FooterSocial({ t, wide }: { t: (key: string) => string; wide: boolean }
   )
 }
 
-export function SiteFooter() {
+export function SiteFooter({ solid = false }: { solid?: boolean }) {
   const { t, i18n } = useTranslation()
   const { lang } = useParams()
   const language: Language = isLanguage(lang) ? lang : 'en'
@@ -166,7 +166,11 @@ export function SiteFooter() {
   const { containerRef, measureRef, wide } = useWideFooter([navMeasureKey, i18n.language])
 
   return (
-    <footer className="mt-auto bg-gradient-to-r from-green-800 to-green-500 text-white">
+    <footer
+      className={`relative z-20 mt-auto text-white ${
+        solid ? 'bg-green-800' : 'bg-gradient-to-r from-green-800 to-green-500'
+      }`}
+    >
       <div
         ref={containerRef}
         className={`public-page-x relative ${wide ? 'py-10' : 'py-8'}`}

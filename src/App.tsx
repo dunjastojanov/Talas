@@ -11,6 +11,7 @@ import { AdminProjectEditPage } from './components/AdminProjectEditPage'
 import { AdminProjectsPage } from './components/AdminProjectsPage'
 import { Page } from './components/Page'
 import { PublicAboutPage } from './components/PublicAboutPage'
+import { PublicHomePage } from './components/PublicHomePage'
 import { PublicCallPage } from './components/PublicCallPage'
 import { PublicContactPage } from './components/PublicContactPage'
 import { PublicSupportPage } from './components/PublicSupportPage'
@@ -68,7 +69,9 @@ export default function App() {
         <Route element={<Layout />}>
           {publicRoutes.map((route) => {
             let element = routeElement(route.titleKey)
-            if (route.path === 'about') {
+            if (route.path === '') {
+              element = <PublicHomePage />
+            } else if (route.path === 'about') {
               element = <PublicAboutPage />
             } else if (route.path === 'call') {
               element = <PublicCallPage />
